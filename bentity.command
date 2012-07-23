@@ -38,6 +38,8 @@ class ConversionDict(UserDict):
   '&apos;'
   >>> conversion_dict('"')
   '&quot;'
+  >>> conversion_dict(chr(3))
+  ' '
   >>> conversion_dict('<')
   '&lt;'
   >>> conversion_dict('>')
@@ -50,7 +52,8 @@ class ConversionDict(UserDict):
                    "'" : '&apos;',
                    '"' : '&quot;',
                    '<' : '&lt;',
-                   '>' : '&gt;'
+                   '>' : '&gt;',
+                   chr(3) : ' '
                   }
   
   def __call__(self, c): return self[c]
